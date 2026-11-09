@@ -204,6 +204,7 @@ tick()
 _G.QuestBeacon.UpdateArrow()
 local A = _G.QB_ARROW
 check("progress shown on arrow (2/5)", A.text.text:find("2/5", 1, true) ~= nil)
+check("quest name always shown under arrow", A.sub.text:find("Quest:", 1, true) and A.sub.text:find("Gather Crates", 1, true) ~= nil)
 check("medium target -> yellow distance (70 yd)", A.text.text:find("ffffff33", 1, true) ~= nil)
 player.x = 0.30 tick() _G.QuestBeacon.UpdateArrow()
 check("far target -> red distance (220 yd)", A.text.text:find("ffff4444", 1, true) ~= nil)
@@ -218,7 +219,7 @@ check("without follow: nearest is Rock (quest 3)", pin and math.abs(pin.position
 Questie.db.char.TrackerFocus = 1 tick()
 check("Questie focus on quest 1 -> crate, ignoring nearer Rock", pin and math.abs(pin.position.x - 0.52) < 1e-6)
 _G.QuestBeacon.UpdateArrow()
-check("arrow says Following: Gather Crates", A.sub.text and A.sub.text:find("Gather Crates", 1, true) ~= nil)
+check("arrow says Following: Gather Crates", A.sub.text and A.sub.text:find("Following", 1, true) and A.sub.text:find("Gather Crates", 1, true) ~= nil)
 Questie.db.char.TrackerFocus = nil tick()
 check("focus cleared -> nearest again (Rock)", pin and math.abs(pin.position.x - 0.49) < 1e-6)
 _G.QuestBeacon.ToggleFollow()   -- follow quest of current target = quest 3

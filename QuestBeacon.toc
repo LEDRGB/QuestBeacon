@@ -2,7 +2,7 @@
 ## Title: QuestBeacon
 ## Notes: On-screen arrow to the nearest quest object or quest mob spawn you still need, and a glow on quest mobs' nameplates. Uses Questie's quest data.
 ## Author: LEDRGB
-## Version: 0.7.0
+## Version: 0.7.1
 ## Dependencies: Questie
 ## SavedVariables: QuestBeaconDB
 

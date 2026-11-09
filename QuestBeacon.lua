@@ -310,12 +310,12 @@ local function GetArrow()
   local glow = a:CreateTexture(nil, "BACKGROUND")
   glow:SetPoint("CENTER")
   a.glow = glow
-  glow:SetTexture("Interface\\GLUES\\Models\\UI_Draenei\\GenericGlow64")
+  glow:SetTexture("Interface\\AddOns\\QuestBeacon\\glow")
   glow:SetBlendMode("ADD")
   glow:SetVertexColor(1, 0.85, 0.2, 0.8)
   local t = a:CreateTexture(nil, "ARTWORK")
   t:SetAllPoints()
-  t:SetTexture("Interface\\Minimap\\MinimapArrow")
+  t:SetTexture("Interface\\AddOns\\QuestBeacon\\arrow")
   t:SetVertexColor(1, 0.85, 0.2)
   a.tex = t
   local fs = a:CreateFontString(nil, "OVERLAY", "GameFontNormal")
@@ -375,7 +375,8 @@ local function UpdateArrow()
     a.glow:SetVertexColor(1, 0.85, 0.2, 0.8)
     a.text:SetText(("%s%s  |c%s%d yd|r"):format(current.name or "?", prog, dcol, d))
   end
-  a.sub:SetText(QB.following and ("Following: " .. (current.questName or "?")) or "")
+  -- always say which quest this target is for
+  a.sub:SetText((QB.following and "|cff33ff99Following:|r " or "|cffaaaaaaQuest:|r ") .. (current.questName or "?"))
   a.isMob = current.isMob
   a:Show()
 end
@@ -411,7 +412,7 @@ local function GetGlow(plate)
   g:SetSize(150, 44)
   local t = g:CreateTexture(nil, "OVERLAY")
   t:SetAllPoints()
-  t:SetTexture("Interface\\GLUES\\Models\\UI_Draenei\\GenericGlow64")
+  t:SetTexture("Interface\\AddOns\\QuestBeacon\\glow")
   t:SetBlendMode("ADD")
   t:SetVertexColor(1, 0.85, 0.2)
   local ag = g:CreateAnimationGroup()
