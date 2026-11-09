@@ -1,0 +1,5 @@
+<Bindings>
+  <Binding name="QUESTBEACON_SKIP" header="QUESTBEACON">QuestBeacon_Skip()</Binding>
+  <Binding name="QUESTBEACON_SKIPTYPE">QuestBeacon_SkipType()</Binding>
+  <Binding name="QUESTBEACON_FOLLOW">QuestBeacon_Follow()</Binding>
+</Bindings>
